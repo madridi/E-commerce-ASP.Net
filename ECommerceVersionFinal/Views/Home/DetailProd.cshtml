@@ -1,0 +1,74 @@
+﻿@model ECommerceVersionFinal.Produit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.photo)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorie.nomCategorie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorie.nomCategorie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fournisseur.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fournisseur.nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+  
+    @Html.ActionLink("Back to List", "Index")
+</p>

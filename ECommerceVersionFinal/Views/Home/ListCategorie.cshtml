@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ECommerceVersionFinal.Categorie>
+
+@{
+    ViewBag.Title = "ListCategorie";
+}
+
+
+
+<div class="col-md-3 col-sm-3 hidden-xs">
+
+    <h5 class="title">Categories</h5>
+    <!-- Sidebar navigation -->
+    <nav>
+        <ul id="nav">
+            <!-- Main menu. Use the class "has_sub" to "li" tag if it has submenu. -->
+@foreach (var item in Model) {
+            <li class="has_sub">
+                @Html.DisplayFor(modelItem => item.nomCategorie)
+                <!-- Submenu -->
+                
+            </li>
+}   
+        </ul>
+    </nav>
+    <br />
+</div>
+
+

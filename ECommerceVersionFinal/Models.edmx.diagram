@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="729dba94bc8d40ec8d3df1a654c97c11" Name="Diagram1">
+        <EntityTypeShape EntityType="ECommerceFinalModel.Categorie" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceFinalModel.Commande" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceFinalModel.Fournisseur" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceFinalModel.LigneCommande" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceFinalModel.Panier" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECommerceFinalModel.Produit" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="ECommerceFinalModel.FK_PRODUIT_ASSOCIATI_CATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceFinalModel.FK_LIGNECOM_ASSOCIATI_COMMANDE" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceFinalModel.FK_PRODUIT_ASSOCIATI_FOURNISS" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceFinalModel.FK_LIGNECOM_ASSOCIATI_PANIER" ManuallyRouted="false" />
+        <AssociationConnector Association="ECommerceFinalModel.FK_LIGNECOM_ASSOCIATI_PRODUIT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

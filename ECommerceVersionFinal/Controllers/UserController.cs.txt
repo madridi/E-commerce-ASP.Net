@@ -1,0 +1,43 @@
+﻿using ECommerceVersionFinal.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+namespace ECommerceVersionFinal.Controllers
+{
+    public class UserController : Controller
+    {
+        ApplicationDbContext _Db = new ApplicationDbContext();
+        //
+        // GET: /User/
+        public ActionResult Index()
+        {
+            var _Users = _Db.Users.OrderBy(m => m.FirstName);
+            var model = new List<UserListViewModels>();
+            foreach (var user in _Users)
+            {
+
+                var u = new UserListViewModels(user.Id, user.FirstName, user.LastName, user.UserName);
+                model.Add(u);
+            }
+            return View(model);
+        }
+
+        public void AjouterPanier()
+        {/*
+            Commande Cmd=new Commande();
+          
+           
+            AccountController AC = new AccountController();
+                ApplicationDbContext db=new ApplicationDbContext();
+                var user =  AC.UserManager.FindByIdAsync(User.Identity.GetUserId());*/
+
+
+
+        }
+    }
+}

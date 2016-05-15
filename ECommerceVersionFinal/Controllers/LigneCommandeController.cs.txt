@@ -1,0 +1,140 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using ECommerceVersionFinal;
+
+namespace ECommerceVersionFinal.Controllers
+{
+    public class LigneCommandeController : Controller
+    {
+        private ECommerceFinalEntities db = new ECommerceFinalEntities();
+
+        // GET: /LigneCommande/
+        public ActionResult Index()
+        {
+            var lignecommande = db.LigneCommande.Include(l => l.Commande).Include(l => l.Panier).Include(l => l.Produit);
+            return View(lignecommande.ToList());
+        }
+
+        // GET: /LigneCommande/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            if (lignecommande == null)
+            {
+                return HttpNotFound();
+            }
+            return View(lignecommande);
+        }
+
+        // GET: /LigneCommande/Create
+        public ActionResult Create()
+        {
+            ViewBag.Com_Id = new SelectList(db.Commande, "Id", "User_Id");
+            ViewBag.Pan_Id = new SelectList(db.Panier, "Id", "Id");
+            ViewBag.Pro_Id = new SelectList(db.Produit, "Id", "nom");
+            return View();
+        }
+
+        // POST: /LigneCommande/Create
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include="Id,Com_Id,Pro_Id,Pan_Id,quantite,prix")] LigneCommande lignecommande)
+        {
+            if (ModelState.IsValid)
+            {
+                db.LigneCommande.Add(lignecommande);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Com_Id = new SelectList(db.Commande, "Id", "User_Id", lignecommande.Com_Id);
+            ViewBag.Pan_Id = new SelectList(db.Panier, "Id", "Id", lignecommande.Pan_Id);
+            ViewBag.Pro_Id = new SelectList(db.Produit, "Id", "nom", lignecommande.Pro_Id);
+            return View(lignecommande);
+        }
+
+        // GET: /LigneCommande/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            if (lignecommande == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Com_Id = new SelectList(db.Commande, "Id", "User_Id", lignecommande.Com_Id);
+            ViewBag.Pan_Id = new SelectList(db.Panier, "Id", "Id", lignecommande.Pan_Id);
+            ViewBag.Pro_Id = new SelectList(db.Produit, "Id", "nom", lignecommande.Pro_Id);
+            return View(lignecommande);
+        }
+
+        // POST: /LigneCommande/Edit/5
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include="Id,Com_Id,Pro_Id,Pan_Id,quantite,prix")] LigneCommande lignecommande)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(lignecommande).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Com_Id = new SelectList(db.Commande, "Id", "User_Id", lignecommande.Com_Id);
+            ViewBag.Pan_Id = new SelectList(db.Panier, "Id", "Id", lignecommande.Pan_Id);
+            ViewBag.Pro_Id = new SelectList(db.Produit, "Id", "nom", lignecommande.Pro_Id);
+            return View(lignecommande);
+        }
+
+        // GET: /LigneCommande/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            if (lignecommande == null)
+            {
+                return HttpNotFound();
+            }
+            return View(lignecommande);
+        }
+
+        // POST: /LigneCommande/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            db.LigneCommande.Remove(lignecommande);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

@@ -1,0 +1,294 @@
+﻿
+@{var UrlHelper = new UrlHelper(Html.ViewContext.RequestContext);
+      string baseurl=UrlHelper.Content("~");
+   
+}
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!-- Title and other stuffs -->
+    <title>EcommerceIsI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Stylesheets -->
+    <link href="@(baseurl)style/bootstrap.css" rel="stylesheet">
+    <!-- Pretty Photo -->
+    <link href="@(baseurl)style/prettyPhoto.css" rel="stylesheet">
+    <!-- Sidebar nav -->
+    <link href="@(baseurl)style/sidebar-nav.css" rel="stylesheet">
+    <!-- Flex slider -->
+    <link href="@(baseurl)style/flexslider.css" rel="stylesheet">
+    <!-- Font awesome icon -->
+    <link rel="@(baseurl)stylesheet" href="style/font-awesome.css">
+    <!-- Main stylesheet -->
+    <link href="@(baseurl)style/style.css" rel="stylesheet">
+    <!-- Stylesheet for Color -->
+    <link href="@(baseurl)style/red.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="@(baseurl)img/favicon.png">
+    <!-- HTML5 Support for IE -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shim.js"></script>
+    <![endif]-->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@(baseurl)img/favicon.png">
+
+   
+
+
+</head>
+
+<body>
+
+    <!-- Header starts -->
+    <header>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <!-- Logo. Use class "color" to add color to the text. -->
+                    <div class="logo">
+                        <h1><a href="#">ECommerce<span class="color bold">ISI</span></a></h1>
+                        <p class="meta">Online ISI shopping is fun!!!</p>
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-md-offset-3">
+
+                    <!-- Search form -->
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                           
+                            <input type="text" class="form-control" id="NP" placeholder="Search">
+                        </div>
+                   
+                        <button type="submit" class="btn btn-default">@Html.ActionLink("Search","Search","",new { OnClick="Search();"})</button>
+
+                    </form>
+                    <div class="hlinks">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <span>
+
+                                <!-- item details with price -->
+                                <a href="" role="button" data-toggle="modal"><img src="@(baseurl)img/panier.png" style="width:30px;height:24px;"/>  @Html.ActionLink("Panier", "Details", "Panier")</a>
+                            </span>
+
+
+
+                            <span class="lr">@Html.ActionLink("Bonjour " + User.Identity.GetUserName(), "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Administrer" })</span>
+
+    
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <button class="btn btn-warning" onclick=" javascript:document.getelementbyid('logoutform').submit()">Se déconnecter</button>
+
+        }
+
+                        }
+                        else
+                        {
+
+                        <!-- Login and Register link -->
+                            <span class="lr">@Html.ActionLink("S’inscrire", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) </span>  <span class="lr">@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</span>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- Header ends -->
+    <!-- Cart, Login and Register form (Modal) -->
+    <!-- Cart Modal starts -->
+    
+    <!-- Cart modal ends -->
+    <!-- Login Modal starts -->
+    <!-- Login modal ends -->
+    <!-- Register Modal starts -->
+    <!-- Register modal ends -->
+    <!-- Navigation -->
+
+
+    <div class="navbar bs-docs-nav" role="banner">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">@Html.ActionLink("Accueil", "Index", "Home")</li>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+
+                                    <li>@Html.ActionLink("Edit Profile", "Manage", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Liste des utilisateurs", "Index", "User")</li>
+                                    <li>@Html.ActionLink("Liste des fournisseurs", "Index", "Fournisseur")</li>
+                                    <li>@Html.ActionLink("Liste des categories", "Index", "Categorie")</li>
+                                    <li>@Html.ActionLink("Liste des produits", "Index", "Produit")</li>
+                                    <li>@Html.ActionLink("Liste des commandes", "Index", "Commande")</li>
+                                </ul>
+                            </li>
+                        }
+                       
+
+                            <li class="dropdown">
+                                @Html.ActionLink("Commande", "MesCommande", "Home")
+
+                            </li>
+
+                        
+                    }
+
+                   
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+       @RenderBody()
+
+
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="widget">
+                                    <h5>Contact</h5>
+                                    <hr />
+                                    <div class="social">
+                                        <a href="#"><i class="icon-facebook facebook"></i></a>
+                                        <a href="#"><i class="icon-twitter twitter"></i></a>
+                                        <a href="#"><i class="icon-linkedin linkedin"></i></a>
+                                        <a href="#"><i class="icon-google-plus google-plus"></i></a>
+                                    </div>
+                                    <hr />
+                                    <i class="icon-home"></i> &nbsp; Dridi Mohamed ALi.
+                                    <hr />
+                                    <i class="icon-phone"></i> &nbsp; +216 21 784 458
+                                    <hr />
+                                    <i class="icon-envelope-alt"></i> &nbsp; <a href="mailto:#">Dali.dridi.isi@gmail.com</a>
+                                    <hr />
+
+
+
+                                    <div class="payment-icons">
+                                        <img src="@(baseurl)img/payment/americanexpress.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/visa.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/mastercard.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/discover.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/paypal.gif" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="widget">
+                                    <h5>Contact</h5>
+                                    <hr />
+                                    <div class="social">
+                                        <a href="#"><i class="icon-facebook facebook"></i></a>
+                                        <a href="#"><i class="icon-twitter twitter"></i></a>
+                                        <a href="#"><i class="icon-linkedin linkedin"></i></a>
+                                        <a href="#"><i class="icon-google-plus google-plus"></i></a>
+                                    </div>
+                                    <hr />
+                                    <i class="icon-home"></i> &nbsp; Drissi Wissem.
+                                    <hr />
+                                    <i class="icon-phone"></i> &nbsp; +216 21 784 458
+                                    <hr />
+                                    <i class="icon-envelope-alt"></i> &nbsp; <a href="mailto:#">Drissi.Wissem@gmail.com</a>
+                                    <hr />
+
+
+
+                                    <div class="payment-icons">
+                                        <img src="@(baseurl)img/payment/americanexpress.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/visa.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/mastercard.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/discover.gif" alt="" />
+                                        <img src="@(baseurl)img/payment/paypal.gif" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="widget">
+                                    <h5>About Us</h5>
+                                    <hr />
+<p>Ingenieur Genie Logiciel et Systeme Informatique  <br /> Institut Superieur D'informatique</p>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                                <hr />
+                                <!-- Copyright info -->
+                                <p class="copy">Copyright &copy; 2015 | Dridi Mohamed ALi & Wissem Drissi
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </footer>
+
+                <!-- Footer ends -->
+                <!-- Scroll to top -->
+                <span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
+
+                <!-- JS -->
+                <script src="@(baseurl)js/jquery.js"></script> <!-- jQuery -->
+                <script src="@(baseurl)js/bootstrap.js"></script> <!-- Bootstrap -->
+                <script src="@(baseurl)js/jquery.prettyPhoto.js"></script> <!-- Pretty Photo -->
+                <script src="@(baseurl)js/filter.js"></script> <!-- Filter for support page -->
+
+                <script src="@(baseurl)js/jquery.flexslider-min.js"></script> <!-- Flex slider -->
+                <script src="@(baseurl)js/nav.js"></script> <!-- Sidebar navigation -->
+                <script src="@(baseurl)js/jquery.carouFredSel-6.1.0-packed.js"></script> <!-- Carousel for recent posts -->
+                <script src="@(baseurl)js/custom.js"></script> <!-- Custom codes -->
+
+
+
+</body>
+</html>

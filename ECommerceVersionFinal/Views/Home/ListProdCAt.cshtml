@@ -1,0 +1,189 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    var UrlHelper = new UrlHelper(Html.ViewContext.RequestContext);
+    string baseurl = UrlHelper.Content("~");
+
+
+
+
+}
+
+
+
+
+@model IEnumerable<ECommerceVersionFinal.Produit>
+
+@{
+    ViewBag.Title = "Index";
+    ECommerceFinalEntities db = new ECommerceFinalEntities();
+    var Model2 = db.Categorie.ToList();
+
+}
+
+
+
+
+
+
+<div class="container flex-main">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="flex-image flexslider">
+                <ul class="slides">
+                    <!-- Each slide should be enclosed inside li tag. -->
+                    <!-- Slide #1 -->
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <!-- Image -->
+                            <img src="@Html.DisplayFor(modelItem => item.photo)" alt="" class="img-responsive" />
+                            <!-- Caption -->
+                            <div class="flex-caption">
+                                <!-- Title -->
+                                <h3>@Html.DisplayFor(modelItem => item.nom)<span class="color">   Just @Html.DisplayFor(modelItem => item.prix) DT</span></h3>
+                                <!-- Para -->
+                                <p>Les Meilleurs Prix chez DALI & WISSEM </p>
+                                <div class="button">
+                                    @Html.ActionLink("Detail", "DetailProd", new { id = item.Id })
+                                </div>
+                            </div>
+                        </li>
+
+                    }
+                    <!-- Slide #2 -->
+
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="items">
+    <div class="container">
+        <div class="row">
+
+
+
+            <div class="col-md-3 col-sm-3 hidden-xs">
+
+                <h5 class="title">Categories</h5>
+                <!-- Sidebar navigation -->
+                <nav>
+                    <ul id="nav">
+                        <!-- Main menu. Use the class "has_sub" to "li" tag if it has submenu. -->
+                        @foreach (var item in Model2)
+                        {
+
+
+               <!-- Main menu. Use the class "has_sub" to "li" tag if it has submenu. -->
+
+                            <li>
+                                @Html.ActionLink((item.nomCategorie), "ListProdCat", new { NomCat = item.nomCategorie }, new { @class = "has_sub" })
+
+                            </li>
+
+
+                        }
+                    </ul>
+
+                </nav>
+            </div>
+
+
+
+            <!-- Main content -->
+            <div class="col-md-9 col-sm-9">
+
+                <!-- Breadcrumb -->
+
+
+
+
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+
+
+
+                    @foreach (var item in Model)
+                    {
+
+
+
+                        <div class="col-md-4 col-sm-6">
+                            <!-- Each item should be enclosed in "item" class -->
+                            <div class="item">
+                                <!-- Item image -->
+                                <div class="item-image">
+                                    <img src="@Html.DisplayFor(modelItem => item.photo)" alt="" class="img-responsive" />
+
+                                </div>
+                                <!-- Item details -->
+                                <div class="item-details">
+                                    <!-- Name -->
+                                    <!-- Use the span tag with the class "ico" and icon link (hot, sale, deal, new) -->
+                                    <h5><a href="single-item.html">@Html.DisplayFor(modelItem => item.nom)</a><span class="ico"><img src="@(baseurl)img/hot.png" alt="" /></span></h5>
+                                    <div class="clearfix"></div>
+                                    <!-- Para. Note more than 2 lines. -->
+
+                                    <hr />
+
+                                    <!-- Price -->
+                                    <div class="item-price pull-left">@Html.DisplayFor(modelItem => item.prix) DT</div>
+                                    <!-- Add to cart -->
+                                    <div class="button pull-right"> @Html.ActionLink("Detail", "DetailProd", new { id = item.Id })</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="hlinks">
+                                    <div class="button pull-right"><span class="label label-success">Stock : @Html.DisplayFor(modelItem => item.quantite)</span> @Html.ActionLink("Ajouter au panier", "AjouterPanier", new { id = item.Id })</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    }
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

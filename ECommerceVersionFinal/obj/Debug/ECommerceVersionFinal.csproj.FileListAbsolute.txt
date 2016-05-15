@@ -1,0 +1,152 @@
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\ECommerceVersionFinal.dll.config
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\ECommerceVersionFinal.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\ECommerceVersionFinal.pdb
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Antlr3.Runtime.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.SqlServer.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Google.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Web.Infrastructure.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Newtonsoft.Json.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Owin.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Helpers.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Mvc.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Optimization.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Razor.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Deployment.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Razor.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\WebGrease.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Helpers.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Mvc.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Optimization.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Razor.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Deployment.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Razor.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Newtonsoft.Json.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Antlr3.Runtime.pdb
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.SqlServer.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Google.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Helpers.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Mvc.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Optimization.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Razor.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.WebPages.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.WebPages.Deployment.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.WebPages.Razor.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\EntityFramework.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\EntityFramework.SqlServer.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.AspNet.Identity.Core.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.AspNet.Identity.Owin.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Host.SystemWeb.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.Facebook.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.Google.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.Twitter.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.dll
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.pdb
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.Migrations.ApplicationDbContext.InitialDatabaseCreation.resources
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.csproj.GenerateResource.Cache
+c:\users\dali\documents\visual studio 2013\Projects\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.csprojResolveAssemblyReference.cache
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\ECommerceVersionFinal.dll.config
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\ECommerceVersionFinal.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\ECommerceVersionFinal.pdb
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Antlr3.Runtime.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.SqlServer.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Newtonsoft.Json.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Owin.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Helpers.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Mvc.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Optimization.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Razor.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Razor.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\WebGrease.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Helpers.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Mvc.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Optimization.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.Razor.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\System.Web.WebPages.Razor.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Newtonsoft.Json.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Antlr3.Runtime.pdb
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\EntityFramework.SqlServer.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Helpers.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Mvc.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Optimization.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.Razor.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.WebPages.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\EntityFramework.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\bin\fr\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.csprojResolveAssemblyReference.cache
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.Migrations.ApplicationDbContext.InitialDatabaseCreation.resources
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.csproj.GenerateResource.Cache
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.dll
+C:\Users\DALI\Desktop\ECommerceVersionFinal\ECommerceVersionFinal\obj\Debug\ECommerceVersionFinal.pdb

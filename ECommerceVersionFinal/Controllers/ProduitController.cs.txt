@@ -1,0 +1,136 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using ECommerceVersionFinal;
+
+namespace ECommerceVersionFinal.Controllers
+{
+    public class ProduitController : Controller
+    {
+        private ECommerceFinalEntities db = new ECommerceFinalEntities();
+
+        // GET: /Produit/
+        public ActionResult Index()
+        {
+            var produit = db.Produit.Include(p => p.Categorie).Include(p => p.Fournisseur);
+            return View(produit.ToList());
+        }
+
+        // GET: /Produit/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produit produit = db.Produit.Find(id);
+            if (produit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produit);
+        }
+
+        // GET: /Produit/Create
+        public ActionResult Create()
+        {
+            ViewBag.Cat_Id = new SelectList(db.Categorie, "Id", "nomCategorie");
+            ViewBag.Fou_Id = new SelectList(db.Fournisseur, "Id", "nom");
+            return View();
+        }
+
+        // POST: /Produit/Create
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include="Id,Cat_Id,Fou_Id,nom,description,photo,quantite,prix")] Produit produit)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Produit.Add(produit);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Cat_Id = new SelectList(db.Categorie, "Id", "nomCategorie", produit.Cat_Id);
+            ViewBag.Fou_Id = new SelectList(db.Fournisseur, "Id", "nom", produit.Fou_Id);
+            return View(produit);
+        }
+
+        // GET: /Produit/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produit produit = db.Produit.Find(id);
+            if (produit == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Cat_Id = new SelectList(db.Categorie, "Id", "nomCategorie", produit.Cat_Id);
+            ViewBag.Fou_Id = new SelectList(db.Fournisseur, "Id", "nom", produit.Fou_Id);
+            return View(produit);
+        }
+
+        // POST: /Produit/Edit/5
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include="Id,Cat_Id,Fou_Id,nom,description,photo,quantite,prix")] Produit produit)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(produit).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Cat_Id = new SelectList(db.Categorie, "Id", "nomCategorie", produit.Cat_Id);
+            ViewBag.Fou_Id = new SelectList(db.Fournisseur, "Id", "nom", produit.Fou_Id);
+            return View(produit);
+        }
+
+        // GET: /Produit/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produit produit = db.Produit.Find(id);
+            if (produit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produit);
+        }
+
+        // POST: /Produit/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Produit produit = db.Produit.Find(id);
+            db.Produit.Remove(produit);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

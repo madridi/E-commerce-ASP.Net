@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ECommerceVersionFinal.LigneCommande>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ma Panier</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Produit.nom)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prix)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.quantite)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produit.nom)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.quantite)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier la Quantité", "Edit", new { id = item.Id }) |
+
+                @Html.ActionLink("Effacer", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<button class="btn btn-warning">
+    @Html.ActionLink("Passer la Commande", "Confirmer")
+</button>

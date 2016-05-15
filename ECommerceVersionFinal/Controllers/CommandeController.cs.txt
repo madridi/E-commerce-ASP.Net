@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using ECommerceVersionFinal;
+
+namespace ECommerceVersionFinal.Controllers
+{
+    public class CommandeController : Controller
+    {
+        private ECommerceFinalEntities db = new ECommerceFinalEntities();
+
+        // GET: /Commande/
+        public ActionResult Index()
+        {
+            return View(db.Commande.ToList());
+        }
+
+        public CommandeController()
+        {
+
+       db = new ECommerceFinalEntities();
+        }
+
+        // GET: /Commande/Details/5
+        public ActionResult Details(int? id)
+        {
+   
+            List<LigneCommande> list = db.LigneCommande.ToList();
+            List<LigneCommande> Model=new List<LigneCommande>();
+            foreach (var item in list)
+            {
+
+                if (item.Com_Id == id)
+                {
+                    Model.Add(item);
+                }
+            }
+            return View(Model);
+        }
+      
+
+        // GET: /Commande/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Commande/Create
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include="Id,dateCommande,User_Id")] Commande commande)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Commande.Add(commande);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(commande);
+        }
+
+        // GET: /Commande/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Commande commande = db.Commande.Find(id);
+            if (commande == null)
+            {
+                return HttpNotFound();
+            }
+            return View(commande);
+        }
+
+        // POST: /Commande/Edit/5
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include="Id,dateCommande,User_Id")] Commande commande)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(commande).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(commande);
+        }
+
+        // GET: /Commande/Delete/5
+        public ActionResult Delete(int id)
+        {
+           
+            Commande commande = db.Commande.Find(id);
+            if (commande == null)
+            {
+                return HttpNotFound();
+            }
+            return View(commande);
+        }
+
+        // POST: /Commande/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Commande commande = db.Commande.Find(id);
+            List<LigneCommande> list = db.LigneCommande.ToList();
+            foreach (var item in list)
+            {
+                LigneCommande LigneCmd = db.LigneCommande.Find(item.Id);
+                if (LigneCmd.Com_Id == commande.Id)
+                {
+                    db.LigneCommande.Remove(LigneCmd);
+                    db.SaveChanges();
+                }
+            }
+            
+
+          
+            db.Commande.Remove(commande);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

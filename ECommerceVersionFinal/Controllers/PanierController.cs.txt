@@ -1,0 +1,197 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+//using System.Linq;
+using System.Net;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ECommerceVersionFinal;
+using ECommerceVersionFinal.Models;
+namespace ECommerceVersionFinal.Controllers
+{
+    public class PanierController : Controller
+    {
+        private ECommerceFinalEntities db = new ECommerceFinalEntities();
+
+        // GET: /Panier/
+        public ActionResult Index()
+        {
+            return View(db.Panier.ToList());
+        }
+
+        public ActionResult Confirmer()
+        {
+            db = new ECommerceFinalEntities();
+            MvcApplication.GlobalVariables.Confirmer = true;
+          
+            foreach (var item in MvcApplication.GlobalVariables.Panier.LigneCommande)
+            {
+                LigneCommande LigneCmd = db.LigneCommande.Find(item.Id);
+                LigneCmd.Pan_Id = 180;
+                db.Entry(LigneCmd).State = EntityState.Modified;
+                db.SaveChanges();
+
+            }
+            Panier pan = db.Panier.Find(MvcApplication.GlobalVariables.Panier.Id);
+
+            db.Panier.Remove(pan);
+            db.SaveChanges();
+
+
+            MvcApplication.GlobalVariables.Panier = new Panier();
+            db.Panier.Add(MvcApplication.GlobalVariables.Panier);
+            db.SaveChanges();
+            
+            var produit = db.Produit.Include(p => p.Categorie).Include(p => p.Fournisseur);
+            return View(produit.ToList());
+        }
+
+        // GET: /Panier/Details/5
+        public ActionResult Details()
+        {
+            if (MvcApplication.GlobalVariables.Panier == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
+        /*     List<LigneCommande> list = db.LigneCommande.ToList();
+            List<LigneCommande> Model=new List<LigneCommande>();
+           foreach(var item in list){
+               if(item.Pan_Id==MvcApplication.GlobalVariables.Panier.Id)
+                   Model.Add(item);
+
+           }
+            */
+            List<LigneCommande> list = db.LigneCommande.ToList();
+            List<LigneCommande> Model = new List<LigneCommande>();
+            foreach (var item in list)
+            {
+                if (item.Pan_Id == MvcApplication.GlobalVariables.Panier.Id)
+                    Model.Add(item);
+
+            }
+            return View(Model);
+        }
+
+        // GET: /Panier/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Panier/Create
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include="Id")] Panier panier)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Panier.Add(panier);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(panier);
+        }
+
+        // GET: /LigneCommand
+
+        public ActionResult EditLine(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            if (lignecommande == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Com_Id = new SelectList(db.Commande, "Id", "User_Id", lignecommande.Com_Id);
+            ViewBag.Pan_Id = new SelectList(db.Panier, "Id", "Id", lignecommande.Pan_Id);
+            ViewBag.Pro_Id = new SelectList(db.Produit, "Id", "nom", lignecommande.Pro_Id);
+            return View(lignecommande);
+
+        }
+
+           public ActionResult Edit2(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            if (lignecommande == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Com_Id = new SelectList(db.Commande, "Id", "User_Id", lignecommande.Com_Id);
+            ViewBag.Pan_Id = new SelectList(db.Panier, "Id", "Id", lignecommande.Pan_Id);
+            ViewBag.Pro_Id = new SelectList(db.Produit, "Id", "nom", lignecommande.Pro_Id);
+            return View(lignecommande);
+        }
+
+        // POST: /LigneCommande/Edit/5
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+           public ActionResult EditLine([Bind(Include = "Id,quantite")] LigneCommande lignecommande)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(lignecommande).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Com_Id = new SelectList(db.Commande, "Id", "User_Id", lignecommande.Com_Id);
+            ViewBag.Pan_Id = new SelectList(db.Panier, "Id", "Id", lignecommande.Pan_Id);
+            ViewBag.Pro_Id = new SelectList(db.Produit, "Id", "nom", lignecommande.Pro_Id);
+            return View(lignecommande);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            if (lignecommande == null)
+            {
+                return HttpNotFound();
+            }
+            return View(lignecommande);
+        }
+
+        // GET: /LigneCommande/Delete/5
+     
+
+        // POST: /LigneCommande/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            LigneCommande lignecommande = db.LigneCommande.Find(id);
+            db.LigneCommande.Remove(lignecommande);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

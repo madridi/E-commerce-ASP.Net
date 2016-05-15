@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace ECommerceVersionFinal
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+        public static class GlobalVariables
+        {
+            public static int Id_Prod { get; set; }
+            public static Panier Panier{get;set;}
+            public static int IdPanier = -1;
+            public static Commande Cmd { get; set; }
+            public static List<LigneCommande> LigneCmdS = new List<LigneCommande>();
+
+            public static Boolean Confirmer = false;
+
+            public static String NomProdRecherche { get; set; }
+        }
+
+    }
+}

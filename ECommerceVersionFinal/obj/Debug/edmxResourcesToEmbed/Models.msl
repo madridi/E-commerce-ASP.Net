@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ECommerceFinalModelStoreContainer" CdmEntityContainer="ECommerceFinalEntities">
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="ECommerceFinalModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nomCategorie" ColumnName="nomCategorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commande">
+      <EntityTypeMapping TypeName="ECommerceFinalModel.Commande">
+        <MappingFragment StoreEntitySet="Commande">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="dateCommande" ColumnName="dateCommande" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fournisseur">
+      <EntityTypeMapping TypeName="ECommerceFinalModel.Fournisseur">
+        <MappingFragment StoreEntitySet="Fournisseur">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LigneCommande">
+      <EntityTypeMapping TypeName="ECommerceFinalModel.LigneCommande">
+        <MappingFragment StoreEntitySet="LigneCommande">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Com_Id" ColumnName="Com_Id" />
+          <ScalarProperty Name="Pro_Id" ColumnName="Pro_Id" />
+          <ScalarProperty Name="Pan_Id" ColumnName="Pan_Id" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Panier">
+      <EntityTypeMapping TypeName="ECommerceFinalModel.Panier">
+        <MappingFragment StoreEntitySet="Panier">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produit">
+      <EntityTypeMapping TypeName="ECommerceFinalModel.Produit">
+        <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+          <ScalarProperty Name="Fou_Id" ColumnName="Fou_Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

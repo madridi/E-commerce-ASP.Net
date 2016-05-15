@@ -1,0 +1,63 @@
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+
+namespace ECommerceVersionFinal.Models
+{
+    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    public class ApplicationUser : IdentityUser
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Adress { get; set; }
+        public string City { get; set; }
+        public string state { get; set; }
+        public string PostCode { get; set; }
+
+        public virtual ICollection<Commande> Commande { get; set; }
+
+    }
+
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext()
+            : base("DefaultConnection")
+        {
+        }
+    }
+
+    //pour creer les roles
+    public class IdentityManager
+    {
+        public bool RoleExists(string name)
+        {
+            var _RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            return _RoleManager.RoleExists(name);
+        }
+
+        public bool CreateRole(string name)
+        {
+
+            var _RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            var _IdResult = _RoleManager.Create(new IdentityRole(name));
+            return _IdResult.Succeeded;
+        }
+
+        public bool CreateUser(ApplicationUser user, string password)
+        {
+
+            var _UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var _IdResult = _UserManager.Create(user, password);
+            return _IdResult.Succeeded;
+        }
+        public bool AddUserToRole(string userId, string roleName)
+        {
+
+            var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var _IdResult = um.AddToRole(userId, roleName);
+            return _IdResult.Succeeded;
+        }
+
+
+    }
+}

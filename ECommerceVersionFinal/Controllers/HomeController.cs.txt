@@ -1,0 +1,182 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+//using System.Linq;
+using System.Net;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ECommerceVersionFinal;
+using ECommerceVersionFinal.Models;
+namespace ECommerceVersionFinal.Controllers
+{
+    public class HomeController : Controller
+    {
+       
+         private ECommerceFinalEntities db = new ECommerceFinalEntities();
+
+        // GET: /Produit/
+        public ActionResult Index()
+        {
+            
+            var produit = db.Produit.Include(p => p.Categorie).Include(p => p.Fournisseur);
+            return View(produit.ToList());
+        }
+
+
+
+        public ActionResult ListProdCAt(string NomCat)
+        {
+            List<Produit> list = db.Produit.ToList();
+            List<Produit> Model = new List<Produit>();
+            foreach (var item in list)
+            {
+                if (item.Categorie.nomCategorie.Equals(NomCat))
+                    Model.Add(item);
+
+            }
+
+            return View(Model);
+
+        }
+
+
+
+        public ActionResult Search([Bind(Include = "NP")] string NomProd)
+        {
+            List<Produit> list = db.Produit.ToList();
+            List<Produit> Model = new List<Produit>();
+            foreach (var item in list)
+            {
+                if (item.nom.Equals(NomProd))
+                    Model.Add(item);
+
+            }
+
+            return View(Model);
+
+
+        }
+
+        public ActionResult DetailMesCommande(int id)
+        {
+            List<LigneCommande> list = db.LigneCommande.ToList();
+            List<LigneCommande> Model=new List<LigneCommande>();
+            foreach (var item in list)
+            {
+
+                if (item.Com_Id == id)
+                {
+                    Model.Add(item);
+                }
+            }
+            return View(Model);
+        }
+
+        public ActionResult DetailProd(int id)
+        {
+
+          
+            Produit produit = db.Produit.Find(id);
+            if (produit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produit);
+
+        }
+
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produit produit = db.Produit.Find(id);
+            if (produit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produit);
+        }
+
+        public ActionResult MesCommande()
+        {
+          List<Commande> list= db.Commande.ToList();
+          List<Commande> list2=new List<Commande>();
+          AccountController AC = new AccountController();
+          
+         // var user = AC.UserManager.FindByIdAsync(User.Identity.GetUserName);
+        
+            foreach(var Commande in list){
+                if (Commande.User_Id.Equals(User.Identity.GetUserName()))
+                    list2.Add(Commande);
+            }
+            return View(list2);
+        }
+
+
+        public ActionResult AjouterPanier(int id)
+        {
+           
+            ECommerceVersionFinal.MvcApplication.GlobalVariables.Id_Prod = id;
+            LigneCommande LigneCmd = new LigneCommande();
+          
+          
+
+            Produit prod  = db.Produit.Find(id);
+
+            LigneCmd.Com_Id = MvcApplication.GlobalVariables.Cmd.Id;
+            LigneCmd.quantite = 1;
+            LigneCmd.prix = (decimal)prod.prix;
+            LigneCmd.Pro_Id = prod.Id;
+            LigneCmd.Pan_Id = MvcApplication.GlobalVariables.Panier.Id;
+
+            db.LigneCommande.Add(LigneCmd);
+            db.SaveChanges();
+
+            LigneCmd.Commande = MvcApplication.GlobalVariables.Cmd;
+           // LigneCmd.Produit = db.Produit.Find(id);
+
+            MvcApplication.GlobalVariables.Panier.LigneCommande.Add(LigneCmd);
+
+            MvcApplication.GlobalVariables.LigneCmdS.Add(LigneCmd);
+
+            MvcApplication.GlobalVariables.Cmd.LigneCommande = MvcApplication.GlobalVariables.LigneCmdS;
+
+            MvcApplication.GlobalVariables.Panier.LigneCommande = MvcApplication.GlobalVariables.LigneCmdS;
+
+
+           // LigneCommande LigneCmd2 = db.LigneCommande.Find(LigneCmd.Id);
+
+            var produit = db.Produit.Include(p => p.Categorie).Include(p => p.Fournisseur);
+            return View(produit.ToList());
+
+        }
+
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Delete(int id)
+        {
+            CommandeController CmdController=new CommandeController();
+            return (CmdController.Delete(id));
+
+        }
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+    }
+}

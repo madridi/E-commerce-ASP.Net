@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECommerceFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomCategorie" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="Commande">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateCommande" Type="datetime" />
+    <Property Name="User_Id" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Fournisseur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="254" />
+    <Property Name="adresse" Type="varchar" MaxLength="254" />
+    <Property Name="mail" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="LigneCommande">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Com_Id" Type="int" Nullable="false" />
+    <Property Name="Pro_Id" Type="int" Nullable="false" />
+    <Property Name="Pan_Id" Type="int" Nullable="false" />
+    <Property Name="quantite" Type="int" />
+    <Property Name="prix" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Panier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cat_Id" Type="int" Nullable="false" />
+    <Property Name="Fou_Id" Type="int" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="254" />
+    <Property Name="description" Type="varchar" MaxLength="254" />
+    <Property Name="photo" Type="varchar" MaxLength="254" />
+    <Property Name="quantite" Type="int" />
+    <Property Name="prix" Type="float" />
+  </EntityType>
+  <Association Name="FK_LIGNECOM_ASSOCIATI_COMMANDE">
+    <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+    <End Role="LigneCommande" Type="Self.LigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LigneCommande">
+        <PropertyRef Name="Com_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LIGNECOM_ASSOCIATI_PANIER">
+    <End Role="Panier" Type="Self.Panier" Multiplicity="1" />
+    <End Role="LigneCommande" Type="Self.LigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Panier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LigneCommande">
+        <PropertyRef Name="Pan_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LIGNECOM_ASSOCIATI_PRODUIT">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+    <End Role="LigneCommande" Type="Self.LigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LigneCommande">
+        <PropertyRef Name="Pro_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUIT_ASSOCIATI_CATEGORI">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produit">
+        <PropertyRef Name="Cat_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUIT_ASSOCIATI_FOURNISS">
+    <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="1" />
+    <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produit">
+        <PropertyRef Name="Fou_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ECommerceFinalModelStoreContainer">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LigneCommande" EntityType="Self.LigneCommande" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Panier" EntityType="Self.Panier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LIGNECOM_ASSOCIATI_COMMANDE" Association="Self.FK_LIGNECOM_ASSOCIATI_COMMANDE">
+      <End Role="Commande" EntitySet="Commande" />
+      <End Role="LigneCommande" EntitySet="LigneCommande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LIGNECOM_ASSOCIATI_PANIER" Association="Self.FK_LIGNECOM_ASSOCIATI_PANIER">
+      <End Role="Panier" EntitySet="Panier" />
+      <End Role="LigneCommande" EntitySet="LigneCommande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LIGNECOM_ASSOCIATI_PRODUIT" Association="Self.FK_LIGNECOM_ASSOCIATI_PRODUIT">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="LigneCommande" EntitySet="LigneCommande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUIT_ASSOCIATI_CATEGORI" Association="Self.FK_PRODUIT_ASSOCIATI_CATEGORI">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Produit" EntitySet="Produit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUIT_ASSOCIATI_FOURNISS" Association="Self.FK_PRODUIT_ASSOCIATI_FOURNISS">
+      <End Role="Fournisseur" EntitySet="Fournisseur" />
+      <End Role="Produit" EntitySet="Produit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

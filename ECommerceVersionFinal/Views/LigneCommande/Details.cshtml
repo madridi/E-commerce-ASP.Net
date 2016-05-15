@@ -1,0 +1,58 @@
+﻿@model ECommerceVersionFinal.LigneCommande
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LigneCommande</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.quantite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Commande.User_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Commande.User_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Panier.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Panier.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produit.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produit.nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
